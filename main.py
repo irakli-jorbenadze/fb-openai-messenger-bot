@@ -1,6 +1,8 @@
 import os
 import openai
 import requests
+from dotenv import load_dotenv
+load_dotenv()
 from flask import Flask, request
 
 app = Flask(__name__)
