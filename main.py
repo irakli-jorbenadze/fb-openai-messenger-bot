@@ -1,5 +1,6 @@
 import os
-import openai
+from openai import OpenAI
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 import requests
 from dotenv import load_dotenv
 load_dotenv()
@@ -51,7 +52,7 @@ def webhook():
 
                     # Generate response using OpenAI
                     try:
-                        response = openai.ChatCompletion.create(
+                        response = client.chat.completions.create(
                             model="gpt-4",
                             messages=[{"role": "user", "content": user_message}]
                         )
