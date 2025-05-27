@@ -1,6 +1,5 @@
 import os
 from openai import OpenAI
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 import requests
 from dotenv import load_dotenv
 load_dotenv()
@@ -11,7 +10,7 @@ app = Flask(__name__)
 # Retrieve environment variables
 VERIFY_TOKEN = os.environ.get("VERIFY_TOKEN")
 PAGE_TOKEN = os.environ.get("PAGE_TOKEN")
-openai.api_key = os.environ.get("OPENAI_API_KEY")
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 def send_message(recipient_id, text):
     """Send a response back to the Facebook user."""
