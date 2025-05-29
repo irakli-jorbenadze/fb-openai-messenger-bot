@@ -53,7 +53,10 @@ def webhook():
                     try:
                         response = client.chat.completions.create(
                             model="gpt-4o",
-                            messages=[{"role": "user", "content": user_message}]
+                            messages=[
+                                    {"role": "system", "content": "Reply fluently and naturally in Georgian. Keep the tone polite and conversational."},    
+                                    {"role": "user", "content": user_message}
+                            ]
                         )
                         reply = response.choices[0].message.content.strip()
                     except Exception as e:
